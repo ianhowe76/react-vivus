@@ -38,20 +38,27 @@ class ReactVivus extends Component {
       pathTiming,
       animTiming,
       onAnimationFinished,
+      delayMs,
     } = this.props;
 
-    this.vivus = new Vivus(this.divId, {
-      file: svg,
-      duration,
-      type,
-      pathTimingFunction: this.getTimingFunction(pathTiming),
-      animTimingFunction: this.getTimingFunction(animTiming),
-    }, onAnimationFinished);
+    setTimeout(() => {
+      this.vivus = new Vivus(this.divId, {
+        file: svg,
+        duration,
+        type,
+        pathTimingFunction: this.getTimingFunction(pathTiming),
+        animTimingFunction: this.getTimingFunction(animTiming),
+      }, onAnimationFinished);
+    }, delayMs);
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  shouldComponentUpdate() {
+  shouldComponentUpdate(nextProps) {
     // Don't re-render this component
+    if (nextProps.duration === 0 && this.vivus && this.vivus.getStatus() !== 'end') {
+      // Finish now
+      this.vivus.finish();
+    }
+
     return false;
   }
 
@@ -71,7 +78,7 @@ class ReactVivus extends Component {
     return timingFunctionMap[val] || Vivus.LINEAR;
   };
 
-  getDivHolder() {
+  getContainer() {
     return this.divHolder;
   }
 
@@ -106,6 +113,7 @@ export const TimingPropType = PropTypes.oneOf([
 ReactVivus.propTypes = {
   svg: PropTypes.string.isRequired,
   duration: PropTypes.number,
+  delayMs: PropTypes.number,
   type: VivusTypePropTypes,
   pathTiming: TimingPropType,
   animTiming: TimingPropType,
@@ -117,6 +125,7 @@ ReactVivus.propTypes = {
 
 ReactVivus.defaultProps = {
   duration: 200,
+  delayMs: 10,
   type: ReactVivus.DELAYED,
   pathTiming: ReactVivus.LINEAR,
   animTiming: ReactVivus.LINEAR,
