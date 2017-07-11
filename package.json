@@ -35,7 +35,8 @@
     "start": "hjs-dev-server",
     "build": "webpack",
     "deploy": "npm run build && gh-pages -d public",
-    "test": "jest"
+    "test": "jest",
+    "tdd": "jest --watch"
   },
   "author": "David Bernal",
   "license": "ISC"
