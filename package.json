@@ -4,6 +4,7 @@
   "description": "Vivus like react component",
   "main": "index.js",
   "dependencies": {
+    "prop-types": "^15.6.0",
     "react": "^15.5.4",
     "react-dom": "^15.1.0",
     "vivus": "^0.4.1"
