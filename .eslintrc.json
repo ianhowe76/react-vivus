@@ -1,0 +1,13 @@
+{
+  "env": {
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "loanmarket-react",
+    "plugin:jest/recommended"
+  ],
+  "plugins": [
+    "jest"
+  ]
+}

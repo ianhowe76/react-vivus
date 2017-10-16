@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-
+import React from 'react';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
+import Vivus from 'vivus';
 
 import ReactVivus from '../src/ReactVivus';
-import Vivus from 'vivus';
 
 const TEST_SVG = '../testData/test-animation.svg';
 
@@ -52,11 +51,9 @@ describe('<ReactVivus />', () => {
 
     test('has created a vivus after the delay', () => {
       clock.tick(ReactVivus.defaultProps.delayMs + 10);
-      expect(rvWrapper.instance().vivus).not.toBeUndefined();
-    });
-
-    test('has created a vivus after the delay', () => {
       const theVivus = rvWrapper.instance().vivus;
+
+      expect(rvWrapper.instance().vivus).not.toBeUndefined();
       expect(theVivus.duration).toBe(ReactVivus.defaultProps.duration);
       expect(theVivus.type).toBe(ReactVivus.defaultProps.type);
       expect(theVivus.pathTimingFunction).toBe(Vivus.LINEAR);

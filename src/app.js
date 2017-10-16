@@ -1,5 +1,5 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import ReactVivus from './ReactVivus'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactVivus from './ReactVivus';
 
-ReactDOM.render(<ReactVivus name="test" svg="images/test.svg" color="orange"/>, document.getElementById('root'))
+ReactDOM.render(<ReactVivus name="test" svg="images/test.svg" color="orange"/>, document.getElementById('root'));

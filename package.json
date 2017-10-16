@@ -3,6 +3,14 @@
   "version": "1.0.0",
   "description": "Vivus like react component",
   "main": "index.js",
+  "scripts": {
+    "start": "hjs-dev-server",
+    "build": "webpack",
+    "deploy": "npm run build && gh-pages -d public",
+    "test:lint": "eslint . --quiet",
+    "test": "jest",
+    "tdd": "jest --watch"
+  },
   "dependencies": {
     "prop-types": "^15.6.0",
     "react": "^15.5.4",
@@ -22,6 +30,13 @@
     "babel-preset-stage-2": "^6.24.1",
     "css-loader": "0.23.1",
     "enzyme": "^2.9.1",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.0.2",
+    "eslint-config-loanmarket-react": "^1.0.5",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^21.2.0",
+    "eslint-plugin-mocha": "^4.11.0",
+    "eslint-plugin-react": "^7.4.0",
     "gh-pages": "0.11.0",
     "hjs-webpack": "8.1.0",
     "jest": "^20.0.4",
@@ -32,13 +47,6 @@
     "sass-loader": "3.2.0",
     "sinon": "^2.3.7",
     "style-loader": "0.13.1"
-  },
-  "scripts": {
-    "start": "hjs-dev-server",
-    "build": "webpack",
-    "deploy": "npm run build && gh-pages -d public",
-    "test": "jest",
-    "tdd": "jest --watch"
   },
   "author": "David Bernal",
   "license": "ISC"
