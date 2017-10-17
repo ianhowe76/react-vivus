@@ -1,7 +1,7 @@
 const getConfig = require('hjs-webpack');
 
 module.exports = getConfig({
-  in: 'src/app.js',
+  in: 'demo/app.js',
   out: 'public',
   clearBeforeBuild: true,
 });
